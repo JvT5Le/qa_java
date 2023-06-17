@@ -3,8 +3,9 @@ package com.example;
 import java.util.List;
 
 public class Lion {
-private final Feline feline;
-private final boolean hasMane;
+    private final Feline feline;
+    private final boolean hasMane;
+
     public Lion(String sex, Feline feline) throws Exception {
         this.feline = feline;
         if ("Самец".equals(sex)) {

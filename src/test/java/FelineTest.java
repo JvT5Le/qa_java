@@ -4,42 +4,48 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 
+import java.util.List;
+
 import static org.junit.Assert.assertEquals;
 
-
-import java.util.List;
 @RunWith(Parameterized.class)
 public class FelineTest {
     private final int expected;
+    private final int expKittensCount = 1;
     Feline feline;
-    public FelineTest(int kittensCount){
+
+    public FelineTest(int kittensCount) {
         this.expected = kittensCount;
-            }
-    @Parameterized.Parameters
+    }
+
+    @Parameterized.Parameters(name = "Kittens count. Test data: {0}")
     public static Object[][] kittenCount() {
-        return new Object[][] {
-                { 0 },
-                { 1 },
-                { 5 },
+        return new Object[][]{
+                {0},
+                {1},
+                {5},
 
         };
     }
 
     @Before
-    public void feline(){
-    feline = new Feline();
-}
+    public void feline() {
+        feline = new Feline();
+    }
+
     @Test
-    public void eatMeat() throws Exception{
+    public void eatMeat() throws Exception {
         assertEquals(List.of("Животные", "Птицы", "Рыба"), feline.eatMeat());
     }
+
     @Test
     public void getFamily() {
         assertEquals("Кошачьи", feline.getFamily());
     }
+
     @Test
     public void getKittensWoParams() {
-             assertEquals(1, feline.getKittens());
+        assertEquals(expKittensCount, feline.getKittens());
     }
 
     @Test

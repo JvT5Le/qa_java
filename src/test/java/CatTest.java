@@ -11,13 +11,15 @@ import org.mockito.junit.MockitoJUnitRunner;
 public class CatTest {
     @Mock
     Feline feline;
+
     @Test
-    public void getSound(){
+    public void getSound() {
         Cat cat = new Cat(feline);
         String expected = "Мяу";
         String actual = cat.getSound();
         Assert.assertEquals(expected, actual);
     }
+
     @Test
     public void getFood() throws Exception {
         Cat cat = new Cat(feline);

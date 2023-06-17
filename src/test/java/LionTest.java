@@ -7,7 +7,9 @@ import org.junit.runners.Parameterized;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
+
 import java.util.List;
+
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThrows;
 
@@ -37,7 +39,7 @@ public class LionTest {
     @Before
     public void setUp() throws Exception {
         MockitoAnnotations.initMocks(this);
-        lion = new Lion(sex,feline);
+        lion = new Lion(sex, feline);
     }
 
     @Test
@@ -49,7 +51,7 @@ public class LionTest {
 
     @Test
     public void doesHaveMane() throws Exception {
-         assertEquals(hasMane, lion.doesHaveMane());
+        assertEquals(hasMane, lion.doesHaveMane());
     }
 
     @Test
@@ -62,7 +64,7 @@ public class LionTest {
     @Test
     public void lionException() throws Exception {
         String exceptionMessage = "Используйте допустимые значения пола животного - самец или самка";
-        Exception exception = assertThrows(Exception.class, () -> new Lion("Гемафродит",feline));
+        Exception exception = assertThrows(Exception.class, () -> new Lion("Гемафродит", feline));
         assertEquals(exceptionMessage, exception.getMessage());
     }
 }
